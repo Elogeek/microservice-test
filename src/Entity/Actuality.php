@@ -12,10 +12,10 @@ class Actuality {
     #[ORM\Column(type: 'integer')]
     private ?int $id;
 
-    #[ORM\Column(type: 'varchar')]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $title;
 
-    #[ORM\Column(type: 'varchar')]
+    #[ORM\Column(type: 'text',nullable: true)]
     private ?string $content;
 
     /**
