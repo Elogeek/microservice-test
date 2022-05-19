@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -14,6 +14,18 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <header>
+                <h1>
+                    <a class="white" href="/">Accueil
+                    </a>
+                </h1>
+                <div class="menu_right">
+                    <a href="{{ path('actuality_add') }}">Ajouter un new</a>
+                    <a href="{{ path('actuality_delete') }}">Supprimer une new</a>
+                    <a href="{{ path('actuality_update') }}">Modifier une new</a>
+                </div>
+            </header>
+        {% endblock %}
     </body>
 </html>
