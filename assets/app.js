@@ -9,4 +9,4 @@
 import './styles/app.css';
 
 // Import template form
-import '/node_module/bootstrap/dist/css/bootstrap.css';
+import '/node_modules/bootstrap/dist/css/bootstrap.css'
