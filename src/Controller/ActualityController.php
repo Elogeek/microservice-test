@@ -56,23 +56,22 @@ class ActualityController extends AbstractController {
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             $this->addFlash("success", "L'article a été modifié avec succès ! !");
-            $actuId = $actuality->getId();
+            $actu = $actuality->getId();
         }
 
-        return $this->render('actuality/update.html.twig', ['form' => $form->createView(),'id' => $actuId] );
+        return $this->render('actuality/update.html.twig', ['form' => $form->createView(),'actuality' => $actu] );
     }
 
     /**
      * delete a actuality and  redirect to homePage
      * @param Actuality $actuality
-     * @param EntityManagerInterface $entityManager
      * @param ActualityRepository $repository
      * @return Response
      */
     #[Route('/actuality/delete/{id}', name: 'actuality_delete')]
-    public function delete(Actuality $actuality, EntityManagerInterface $entityManager, ActualityRepository $repository): Response {
-        $repository->delete($actuality->getId());
-        $actuId = $actuality->getId();
-        return $this->redirect("/", (int)['id' => $actuId]);
+    public function delete(Actuality $actuality,EntityManagerInterface $entityManager, ActualityRepository $repository): Response {
+        $entityManager->remove($actuality);
+        $entityManager->flush();
+        return $this->redirect("actuality/index.html.twig", ['actuality' => $actuality]);
     }
 }
