@@ -21,9 +21,9 @@
                     </a>
                 </h1>
                 <div class="menu_right">
-                    <a href="{{ path('actuality_add') }}">Ajouter un new</a>
-                    <a href="{{ path('actuality_delete') }}">Supprimer une new</a>
-                    <a href="{{ path('actuality_update') }}">Modifier une new</a>
+                    <a href="/actuality/add">Ajouter un new</a>
+                    <a href="/actuality/delete/{{ actuId.id }}">Supprimer une new</a>
+                    <a href="/actuality/update/{{ actuId.id }}">Modifier une new</a>
                 </div>
             </header>
         {% endblock %}
