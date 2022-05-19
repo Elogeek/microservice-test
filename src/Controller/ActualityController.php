@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ActualityController extends AbstractController {
-    #[Route('/actuality', name: 'app_actuality')]
+    #[Route('/', name: 'app_actuality')]
     public function index(): Response {
         return $this->render('actuality/index.html.twig');
     }
@@ -72,6 +72,6 @@ class ActualityController extends AbstractController {
     public function delete(Actuality $actuality,EntityManagerInterface $entityManager, ActualityRepository $repository): Response {
         $entityManager->remove($actuality);
         $entityManager->flush();
-        return $this->redirect("actuality/index.html.twig", ['actuality' => $actuality]);
+        return $this->redirect("/", ['actuality' => $actuality]);
     }
 }
