@@ -8,5 +8,5 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
-// start the Stimulus application
-//import './bootstrap';
+// Import template form
+import '/node_module/bootstrap/dist/css/bootstrap.css';
