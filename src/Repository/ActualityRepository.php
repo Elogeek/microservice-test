@@ -29,6 +29,15 @@ class  ActualityRepository  extends ServiceEntityRepository{
         }
     }
 
+    public function delete(?int $getId) {
+        $db = $this->getEntityManager()->getConnection();
+
+        $query = "DELETE FROM actuality WHERE id = $id";
+
+        $stmt = $db->prepare($query);
+        return $stmt->executeQuery();
+    }
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException
@@ -66,5 +75,4 @@ class  ActualityRepository  extends ServiceEntityRepository{
         ;
     }
     */
-
 }

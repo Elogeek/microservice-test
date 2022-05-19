@@ -3,18 +3,21 @@
 {% block title %}Hello ActualityController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/elogeek/IdeaProjects/microservice-test/src/Controller/ActualityController.php'|file_link(0) }}">src/Controller/ActualityController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/elogeek/IdeaProjects/microservice-test/templates/actuality/index.html.twig'|file_link(0) }}">templates/actuality/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {{ parent() }}
+    <main class="">
+        {% for book in books %}
+            <h1 class="titleActu">{{ actu.title }} </h1>
+            <div class="container center_flex width_50">
+                 {{ actu.content }}
+                <div class="flexColumn">
+                    <div class="marg_30">
+                        <a class="update" href="/{{ path('actuality_delete', {'id': 'x'}) }}"><i class="fa-solid fa-pen-to-square"></i> Modifier la new </a>
+                    </div>
+                    <div class="marg_30">
+                        <a class="delete" href="/{{ path('actuality_delete', {'id': 'x'}) }}"><i class="fa-solid fa-trash-can"></i> Supprimer la new</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </main>
 {% endblock %}

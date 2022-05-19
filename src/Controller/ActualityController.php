@@ -18,10 +18,11 @@ class ActualityController extends AbstractController {
     }
 
     /**
-    * add a actuality
-    * @param EntityManagerInterface $entityManager
-    * @return Response
-    */
+     * add a actuality
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/actuality/add', name: 'actuality_add')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response {
 
@@ -56,6 +57,7 @@ class ActualityController extends AbstractController {
             $entityManager->flush();
             $this->addFlash("success", "L'article a été modifié avec succès ! !");
         }
+
         return $this->render('actuality/update.html.twig', ['form' => $form->createView()]);
     }
 
